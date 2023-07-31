@@ -33,7 +33,7 @@ thePlayer = {
             return v, x, y, z
         end
         return nil
-    end
+    end,
 
     function findHotbarSlot(item)
         for i = 1, 9 do
@@ -115,7 +115,7 @@ renderHelper = {
         end
         
         render.scale(sc.scale_factor)
-    end
+    end,
 
     function getBlockBoundingBox(posX, posY, posZ)
         maxY = posY + 1
