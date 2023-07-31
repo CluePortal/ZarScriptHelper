@@ -75,7 +75,7 @@ renderHelper = {
         
         lineWidth = thickness
         if z1<1 and z2<1 and z3<1 and z4<1 and z5<1 and z6<1 and z7<1 and z8<1 then
-            v, x, y, z = mouseOverBlock()
+            v, x, y, z = thePlayer.mouseOverBlock()
             if v == 1 then
                 render.line(x1,y1,x5,y5,lineWidth,red,green,blue,alpha)
                 render.line(x3,y3,x7,y7,lineWidth,red,green,blue,alpha)
