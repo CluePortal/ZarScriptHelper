@@ -48,6 +48,33 @@ thePlayer = {
     end
 }
 
+theWorld = {
+    isTeamMate = function(entityID)
+        if entityID == nil then
+            return nil
+        end
+        display_name = world.display_name(player.id())
+        if display_name ~= nil then
+            if string.find(display_name, "\194\167") ~= nil then
+                substring = string.sub(display_name, string.find(display_name, "\194\167"), string.find(display_name, "\194\167") +2)
+                if string.find(world.display_name(entityID), substring) ~= nil then
+                    return true
+                end
+                return false
+            end
+        end
+    end
+}
+
+Math = {
+    round = function(num, dec)
+        local shift = 10^(dec or 2)
+        num = math.floor(num * shift + 0.5) / shift
+        if num == math.floor(num) then num = tostring(num.."."..("0"):rep(dec)) end
+        return num
+    end
+}
+
 renderHelper = {
     renderBlockSideOutline = function(minX, minY, minZ, maxX, maxY, maxZ, sc, r, g, b, a, thickness)
         red = r
