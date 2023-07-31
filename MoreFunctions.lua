@@ -58,8 +58,8 @@ thePlayer = {
 }
 
 module = {
-    setModuleState = function(module, boolean)
-        if module_manager.is_module_on(mod) ~= state then
+    setModuleState = function(mod, boolean)
+        if module_manager.is_module_on(mod) ~= boolean then
             player.message("." .. mod)
         end
     end
