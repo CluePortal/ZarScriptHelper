@@ -18,16 +18,6 @@ function findHotbarSlot(item)
     return -1
 end
 
-function getBlockBoundingBox(posX, posY, posZ)
-    maxY = posY + 1
-    minY = posY
-    maxX = posX
-    maxZ = posZ
-    minX = posX + 1
-    minZ = posZ + 1
-    return minX, minY, minZ, maxX, maxY, maxZ
-end
-
 function renderBlockSideOutline(minX, minY, minZ, maxX, maxY, maxZ, sc, r, g, b, a, thickness)
     red = r
     green = g
@@ -94,4 +84,14 @@ function renderBlockSideOutline(minX, minY, minZ, maxX, maxY, maxZ, sc, r, g, b,
     end
     
     render.scale(sc.scale_factor)
+end
+
+function getBlockBoundingBox(posX, posY, posZ)
+    maxY = posY + 1
+    minY = posY
+    maxX = posX
+    maxZ = posZ
+    minX = posX + 1
+    minZ = posZ + 1
+    return minX, minY, minZ, maxX, maxY, maxZ
 end
