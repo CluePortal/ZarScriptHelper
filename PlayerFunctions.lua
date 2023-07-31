@@ -1,7 +1,7 @@
 function mouseOverBlock()
     local n, v, x, y, z = player.over_mouse()
     if n == 2 then
-        return s, x, y, z
+        return v, x, y, z
     end
     return nil
 end
