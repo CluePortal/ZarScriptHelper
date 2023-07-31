@@ -1,22 +1,52 @@
-function mouseOverBlock()
-    local n, v, x, y, z = player.over_mouse()
-    if n == 2 then
-        return v, x, y, z
-    end
-    return nil
-end
+local color = {
+    dark_red = '\194\1674',
+    red = '\194\167c',
+    gold = '\194\1676',
+    yellow = '\194\167e',
+    dark_green = '\194\1672',
+    green = '\194\167a',
+    aqua = '\194\167b',
+    dark_aqua = '\194\1673',
+    dark_blue = '\194\1671',
+    blue = '\194\1679',
+    light_purple = '\194\167d',
+    dark_purple = '\194\1675',
+    white = '\194\167f',
+    gray = '\194\1677',
+    dark_gray = '\194\1678',
+    black = '\194\1670'
+}
 
-function findHotbarSlot(item)
-	for i = 1, 9 do
-        local name = player.inventory.item_information(35 + i)
+local format = {
+    obfuscated = '\194\167k',
+    bold = '\194\167l',
+    strikethrough = '\194\167m',
+    underline = '\194\167n',
+    italic = '\194\167o',
+    reset = '\194\167r'
+}
 
-        if name ~= nil and string.match(name, item) then
-            return i
+local player = {
+    function mouseOverBlock()
+        local n, v, x, y, z = player.over_mouse()
+        if n == 2 then
+            return v, x, y, z
         end
+        return nil
     end
 
-    return -1
-end
+    function findHotbarSlot(item)
+        for i = 1, 9 do
+            local name = player.inventory.item_information(35 + i)
+
+            if name ~= nil and string.match(name, item) then
+                return i
+            end
+        end
+
+        return -1
+    end
+}
 
 function renderBlockSideOutline(minX, minY, minZ, maxX, maxY, maxZ, sc, r, g, b, a, thickness)
     red = r
