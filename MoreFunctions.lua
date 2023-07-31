@@ -57,6 +57,14 @@ thePlayer = {
     end
 }
 
+module = {
+    setModuleState = function(module, boolean)
+        if module_manager.is_module_on(mod) ~= state then
+            player.message("." .. mod)
+        end
+    end
+}
+
 theWorld = {
     isTeamMate = function(entityID)
         if entityID == nil then
