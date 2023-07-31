@@ -57,7 +57,7 @@ thePlayer = {
     end
 }
 
-module = {
+moduleHelper = {
     setModuleState = function(mod, boolean)
         if module_manager.is_module_on(mod) ~= boolean then
             player.message("." .. mod)
