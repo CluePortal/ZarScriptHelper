@@ -27,7 +27,7 @@ color = {
 }
 
 thePlayer = {
-    function mouseOverBlock()
+    mouseOverBlock = function()
         local n, v, x, y, z = player.over_mouse()
         if n == 2 then
             return v, x, y, z
@@ -35,7 +35,7 @@ thePlayer = {
         return nil
     end,
 
-    function findHotbarSlot(item)
+    findHotbarSlot = function(item)
         for i = 1, 9 do
             local name = player.inventory.item_information(35 + i)
 
@@ -47,6 +47,7 @@ thePlayer = {
         return -1
     end
 }
+
 
 function renderBlockSideOutline(minX, minY, minZ, maxX, maxY, maxZ, sc, r, g, b, a, thickness)
     red = r
