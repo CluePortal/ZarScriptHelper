@@ -26,6 +26,15 @@ color = {
     black = '\194\1670'
 }
 
+Math = {
+    round = function(num, dec)
+        local shift = 10^(dec or 2)
+        num = math.floor(num * shift + 0.5) / shift
+        if num == math.floor(num) then num = tostring(num.."."..("0"):rep(dec)) end
+        return num
+    end
+}
+
 thePlayer = {
     mouseOverBlock = function()
         local n, v, x, y, z = player.over_mouse()
@@ -63,16 +72,16 @@ theWorld = {
                 return false
             end
         end
-    end
-}
+    end,
 
-Math = {
-    round = function(num, dec)
-        local shift = 10^(dec or 2)
-        num = math.floor(num * shift + 0.5) / shift
-        if num == math.floor(num) then num = tostring(num.."."..("0"):rep(dec)) end
-        return num
-    end
+    getBPS = function(entityID, decimals) {
+        local posX, posY, posZ = world.position(entityID)
+        local prevPosX, prevPosY, prevPosZ = world.prev_position(entityID)
+        double x = posX - prevPosX;
+        double z = posZ - prevPosZ;
+        double sp = math.sqrt((x * x) + (z * z)) * 20;
+        return Math.round(sp, decimals);
+    }
 }
 
 renderHelper = {
