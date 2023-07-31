@@ -26,7 +26,7 @@ local format = {
     reset = '\194\167r'
 }
 
-local player = {
+local getPlayer = {
     function mouseOverBlock()
         local n, v, x, y, z = player.over_mouse()
         if n == 2 then
