@@ -91,8 +91,8 @@ theWorld = {
         return Math.round(sp, decimals);
     end,
 
-    isEntityNaked = function(entity_ID)
-        local inventory = world.inventory(entity_ID)
+    isEntityNaked = function(entityID)
+        local inventory = world.inventory(entityID)
         if inventory.leggings == nil and inventory.chestplate == nil and inventory.helmet == nil and inventory.boots == nil then
             return true
         else
