@@ -37,9 +37,9 @@ Math = {
 
 thePlayer = {
     mouseOverBlock = function()
-        local n, v, x, y, z = player.over_mouse()
+        local n, v, x, y, z, sx, sy, sz = player.over_mouse()
         if n == 2 then
-            return v, x, y, z
+            return v, x, y, z, sx, sy, sz
         end
         return nil
     end,
@@ -170,7 +170,7 @@ renderHelper = {
         render.scale(sc.scale_factor)
     end,
 
-    renderOutline = function(minX, minY, minZ, maxX, maxY, maxZ, sc, red, green, blue, lineWidth)
+    renderOutline = function(minX, minY, minZ, maxX, maxY, maxZ, sc, red, green, blue, alpha, lineWidth)
         px, py, pz = player.camera_position()
         dMinX = minX-px
         dMinY = minY-py
@@ -191,18 +191,18 @@ renderHelper = {
         render.scale(1/sc.scale_factor)
         
         if z1<1 and z2<1 and z3<1 and z4<1 and z5<1 and z6<1 and z7<1 and z8<1 then
-            render.line(x1,y1,x2,y2,lineWidth,red,green,blue,255)
-            render.line(x3,y3,x4,y4,lineWidth,red,green,blue,255)
-            render.line(x5,y5,x6,y6,lineWidth,red,green,blue,255)
-            render.line(x7,y7,x8,y8,lineWidth,red,green,blue,255)
-            render.line(x1,y1,x5,y5,lineWidth,red,green,blue,255)
-            render.line(x2,y2,x6,y6,lineWidth,red,green,blue,255)
-            render.line(x3,y3,x7,y7,lineWidth,red,green,blue,255)
-            render.line(x4,y4,x8,y8,lineWidth,red,green,blue,255)
-            render.line(x5,y5,x3,y3,lineWidth,red,green,blue,255)
-            render.line(x6,y6,x4,y4,lineWidth,red,green,blue,255)
-            render.line(x7,y7,x1,y1,lineWidth,red,green,blue,255)
-            render.line(x8,y8,x2,y2,lineWidth,red,green,blue,255)
+            render.line(x1,y1,x2,y2,lineWidth,red,green,blue,alpha)
+            render.line(x3,y3,x4,y4,lineWidth,red,green,blue,alpha)
+            render.line(x5,y5,x6,y6,lineWidth,red,green,blue,alpha)
+            render.line(x7,y7,x8,y8,lineWidth,red,green,blue,alpha)
+            render.line(x1,y1,x5,y5,lineWidth,red,green,blue,alpha)
+            render.line(x2,y2,x6,y6,lineWidth,red,green,blue,alpha)
+            render.line(x3,y3,x7,y7,lineWidth,red,green,blue,alpha)
+            render.line(x4,y4,x8,y8,lineWidth,red,green,blue,alpha)
+            render.line(x5,y5,x3,y3,lineWidth,red,green,blue,alpha)
+            render.line(x6,y6,x4,y4,lineWidth,red,green,blue,alpha)
+            render.line(x7,y7,x1,y1,lineWidth,red,green,blue,alpha)
+            render.line(x8,y8,x2,y2,lineWidth,red,green,blue,alpha)
         end
         
         render.scale(sc.scale_factor)
