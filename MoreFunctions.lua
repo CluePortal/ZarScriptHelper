@@ -218,14 +218,3 @@ renderHelper = {
         return minX, minY, minZ, maxX, maxY, maxZ
     end
 }
-
-Utils = {
-    -- lua function for java ternary operator, usage in java: condition ? true : false
-    ternary = function(condition, ifTrue, ifFalse)
-        if condition then
-            return ifTrue
-        else 
-            return ifFalse
-        end
-    end
-}
