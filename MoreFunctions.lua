@@ -222,6 +222,10 @@ renderHelper = {
 Utils = {
     -- lua function for java ternary operator, usage in java: condition ? true : false
     ternary = function(condition, ifTrue, ifFalse)
-        return condition and ifTrue or ifFalse
+        if condition then
+            return ifTrue
+        else 
+            return ifFalse
+        end
     end
 }
