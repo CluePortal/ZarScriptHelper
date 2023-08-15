@@ -82,15 +82,6 @@ theWorld = {
         end
     end,
 
-    getBPS = function(entityID, decimals)
-        local posX, posY, posZ = world.position(entityID)
-        local prevPosX, prevPosY, prevPosZ = world.prev_position(entityID)
-        local x = posX - prevPosX;
-        local z = posZ - prevPosZ;
-        local sp = math.sqrt((x * x) + (z * z)) * 20;
-        return Math.round(sp, decimals);
-    end,
-
     isEntityNaked = function(entityID)
         local inventory = world.inventory(entityID)
         if inventory.leggings == nil and inventory.chestplate == nil and inventory.helmet == nil and inventory.boots == nil then
